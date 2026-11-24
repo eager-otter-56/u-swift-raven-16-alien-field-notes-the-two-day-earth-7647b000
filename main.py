@@ -1,0 +1,18 @@
+import os
+
+# One-line alien tourist review of Earth: a cinema visit, misread as ritual,
+# with the punch (endless applauding) saved for the final words.
+TEXT = "★★★☆☆ Stunning oceans, warm soup, baffling locals: they pay to sit in dark rooms watching giant humans pretend to die, then applaud wildly. I joined in. I have not stopped applauding since Tuesday."
+
+
+def main():
+    out_dir = os.environ.get("MAKEFUN_OUTPUT_DIR", "/output")
+    os.makedirs(out_dir, exist_ok=True)
+    path = os.path.join(out_dir, "entry.txt")
+    with open(path, "w", encoding="utf-8") as f:
+        f.write(TEXT)
+    os.chmod(path, 0o644)
+
+
+if __name__ == "__main__":
+    main()
